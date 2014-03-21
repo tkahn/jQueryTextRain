@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery TextRain by Thomas Kahn</title>
+    <link rel="Stylesheet" type="text/css" href="css/style.css" />
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.textrain.js"></script>
+</head>
+
+	<script type="text/javascript">
+		// Some easing methods you can try
+		/*
+		linear
+		swing
+		easeInQuad
+		easeOutQuad
+		easeInOutQuad
+		easeInCubic
+		easeOutCubic
+		easeInOutCubic
+		easeInQuart
+		easeOutQuart
+		easeInOutQuart
+		easeInQuint
+		easeOutQuint
+		easeInOutQuint
+		easeInSine
+		easeOutSine
+		easeInOutSine
+		easeInExpo
+		easeOutExpo
+		easeInOutExpo
+		easeInCirc
+		easeOutCirc
+		easeInOutCirc
+		easeInElastic
+		easeOutElastic
+		easeInOutElastic
+		easeInBack
+		easeOutBack
+		easeInOutBack
+		easeInBounce
+		easeOutBounce
+		easeInOutBounce
+		
+		
+		// These are the options for jQueryTextRain
+		easingMethod: 'easeOutBounce', // string - ui easing presets (above)
+		rainingOrder: 'random', // string - random, fromBeginning, fromEnd
+		totalAnimationTime: 5000, // integer - milliseconds
+		timeForEachWordToFall: 1000, // integer - milliseconds
+		animateToOpacity: 1.0 // float - 0.0 = transparent, 1.0 = opaque
+		*/
+		$(document).ready(function() {
+			$("#rainOne").textrain({ 
+				easingMethod: 'easeInBack', 
+				rainingOrder: 'fromEnd', 
+				totalAnimationTime: 9000, 
+				animateToOpacity: 0.0 
+			});
+			
+			$("#rainTwo").textrain({ 
+				easingMethod: 'easeOutBounce', 
+				rainingOrder: 'random', 
+				totalAnimationTime: 5000, 
+				animateToOpacity: 0.5
+			});
+			
+			$("#rainThree").textrain({ 
+				easingMethod: 'easeOutBack', 
+				rainingOrder: 'fromBeginning', 
+				totalAnimationTime: 1500, 
+				animateToOpacity: 1.0
+			});
+
+			$("#rain").click(function() {
+				$("#rainOne").textrain("rain");
+				$("#rainTwo").textrain("rain");
+				$("#rainThree").textrain("rain");
+			});
+
+			$("#reset").click(function() {
+				$("#rainOne").textrain("reset");
+				$("#rainTwo").textrain("reset");
+				$("#rainThree").textrain("reset");
+			});
+
+		});
+
+	</script>
+
+<body>
+	<!-- wrapper -->
+	<div style="width: 925px; text-align: left;">
+
+	<!-- header -->
+	<div style="width: 100%;">
+	<h1>jQuery TextRain - by Thomas Kahn</h1>
+	</div>
+	<!-- column wrapper -->
+	<div class="clearfix">
+	<!-- left column -->
+	<div style="width: 450px; float: left">
+	<p id="rainOne" class="rainingText">
+	Rain is liquid precipitation, as opposed to non-liquid kinds of precipitation such as snow, hail and sleet. Rain requires the presence of a thick layer of the atmosphere to have temperatures above the melting point of water near and above the Earth's surface. On Earth, it is the condensation of atmospheric water vapor into drops of <b>water heavy</b> enough to fall, often making it to the surface. Two processes, possibly acting together, can lead to air becoming saturated leading to rainfall: cooling the air or adding water vapor to the air. Virga is precipitation that begins falling to the earth but evaporates before reaching the surface; it is one of the ways air can become saturated. Precipitation forms via collision with other rain drops or ice crystals within a cloud. Rain drops range in size from oblate, pancake-like shapes for larger drops, to small spheres for smaller drops.</p>
+	</div>
+	<!-- right column -->
+	<div style="width: 450px; float: right">
+	<p id="rainTwo" class="bigRainingText">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce semper rhoncus fringilla. Nullam ultrices, dolor at dictum vulputate, diam libero tempus quam, eu ornare orci lorem a enim. Proin id eros ante.
+	</div>
+	</div>
+	<!-- footer -->
+	<div style="width: 925px; height: 100px; padding: 20px 0 20px 0;">
+	<p id="rainThree" class="rainingText">
+	Ut ut risus quam, id hendrerit neque. Donec lacinia metus quis libero tempus quis iaculis lorem volutpat. Nullam a mauris lectus. Vestibulum semper, orci id placerat varius, elit nunc commodo lacus, et sollicitudin urna nibh vel nibh. Quisque ut enim id dui feugiat vehicula. Morbi aliquam blandit facilisis. Suspendisse potenti. 
+	</p>
+	</div>
+	<!-- bottom column -->
+
+	<div style="width: 100%; height: 100px;">
+	<br /><br />
+	<span id="rain" style="color: Blue; text-decoration: underline; cursor: pointer;">Rain</span> | <span id="reset" style="color: Blue; text-decoration: underline; cursor: pointer;">Reset</span>
+	</div>
+	</div>
+</body>
+
+</html>
